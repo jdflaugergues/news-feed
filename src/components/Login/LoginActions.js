@@ -51,8 +51,8 @@ function authenticate(username, password, grant_type = 'password', client_id = '
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
-      body: 'username=decouverte@wizbii.com&password=decouvertewizbii&client_id=test&grant_type=password'
-      // body: queryParams
+      // body: 'username=decouverte@wizbii.com&password=decouvertewizbii&client_id=test&grant_type=password'
+      body: queryParams
     })
       .then(checkStatus)
       .then(parseJSON)

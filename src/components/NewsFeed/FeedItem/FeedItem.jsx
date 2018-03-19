@@ -7,6 +7,7 @@ import Paper from 'material-ui/Paper';
 
 import {Badge, Tag} from '../../Base';
 import {CommentContainer} from '../../Comment';
+import {Attachment} from '../../Attachment';
 
 import getNewsfeedTheme from '../../../common/theme';
 
@@ -53,7 +54,12 @@ class NewsFeed extends Component {
       logo: PropTypes.string,
       name: PropTypes.string
     }),
-    userProfile: PropTypes.object
+    userProfile: PropTypes.object,
+    attachmentLink: PropTypes.string,
+    attachmentPicture: PropTypes.string,
+    attachmentHeight: PropTypes.number,
+    attachmentWidth: PropTypes.number,
+    attachmentTitle: PropTypes.string,
   };
 
   static defaultProps = {
@@ -97,7 +103,8 @@ class NewsFeed extends Component {
   }
 
   render() {
-    const {id, date_created, content, tags, comments, likes, profile, company, userProfile} = this.props;
+    const {id, date_created, content, tags, comments, likes, profile, company, userProfile, attachmentLink, attachmentPicture, attachmentHeight, attachmentWidth, attachmentTitle} = this.props;
+
     const {picture, primaryText, extraText = '', letters} = this.getBadgeParameter(profile, company);
 
     return (
@@ -118,6 +125,14 @@ class NewsFeed extends Component {
             className={cxs(styles.content)}
             dangerouslySetInnerHTML={{__html: this.addContentLink(content)}}>
           </div>
+          {attachmentLink ? (<div>
+            <Attachment
+             link={attachmentLink}
+             picture={attachmentPicture}
+             height={attachmentHeight}
+             width={attachmentWidth}
+             title={attachmentTitle} />
+          </div>) : null}
           <div className={cxs(styles.comments)}>
             <CommentContainer
               id={id}

@@ -43,7 +43,7 @@ class NewsFeed extends Component {
     }
     return (
       <div className={newsFeedStyle}>
-        {this.filterFeedItems(feedItems).map(({id, publication: {date_created, content, tags, comments, likes, profile, company}}) => {
+        {this.filterFeedItems(feedItems).map(({id, publication: {date_created, content, tags, comments, likes, profile, company, attachment_link, attachment_picture, attachment_picture_height, attachment_picture_width, attachment_title}}) => {
           return (
             <FeedItem
               key={id}
@@ -55,6 +55,11 @@ class NewsFeed extends Component {
               tags={tags}
               comments={comments}
               likes={likes}
+              attachmentLink={attachment_link}
+              attachmentPicture={attachment_picture}
+              attachmentHeight={attachment_picture_height}
+              attachmentWidth={attachment_picture_width}
+              attachmentTitle={attachment_title}
             >
             </FeedItem>
           )
