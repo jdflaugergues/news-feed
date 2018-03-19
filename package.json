@@ -1,0 +1,51 @@
+{
+  "name": "news-feed",
+  "version": "1.0.0",
+  "description": "News Feed",
+  "author": "Jonathan de Flaugergues <jdflaugergues@gmail.com>",
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/jdflaugergues/news-feed"
+  },
+  "private": false,
+  "dependencies": {
+    "content-range": "^1.1.0",
+    "cross-fetch": "^1.1.1",
+    "cxs": "^6.1.0",
+    "lodash": "^4.17.4",
+    "material-ui": "^0.20.0",
+    "moment": "^2.21.0",
+    "moment-timezone": "^0.5.14",
+    "prop-types": "^15.6.0",
+    "query-string": "^5.1.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-moment": "^0.7.0",
+    "react-redux": "^5.0.6",
+    "react-redux-provide": "^7.0.6",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.0",
+    "redux": "^3.7.2",
+    "redux-actions": "^2.3.0",
+    "redux-logger": "^3.0.6",
+    "redux-promise": "^0.5.3",
+    "redux-thunk": "^2.2.0"
+  },
+  "scripts": {
+    "start": "HTTPS_PROXY=true node_modules/.bin/react-scripts start",
+    "build": "node_modules/.bin/react-scripts build && rm build/static/js/*.map",
+    "test": "node_modules/.bin/react-scripts test --coverage --env=jsdom ",
+    "eject": "node_modules/.bin/react-scripts eject"
+  },
+  "engines": {
+    "npm": "5.6.0",
+    "node": "v9.8.0"
+  },
+  "proxy": {
+    "/*": {
+      "target": "https://api.wizbii.com",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }
+}
